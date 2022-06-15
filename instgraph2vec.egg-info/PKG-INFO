@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: instgraph2vec
+Version: 0.1.0
+Summary: A interface for Graph2Vec
+Home-page: https://github.com/maximkha/instgraph2vec
+Author: Maxim Khanov
+Author-email: maximkha@outlook.com
+License: GPLV3
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+License-File: LICENSE
+
+UNKNOWN
+

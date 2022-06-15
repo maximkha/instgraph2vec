@@ -1,0 +1,3 @@
+[submodule "graph2vec"]
+	path = graph2vec
+	url = https://github.com/benedekrozemberczki/graph2vec

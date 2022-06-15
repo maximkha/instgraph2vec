@@ -1,0 +1,9 @@
+LICENSE
+setup.py
+instgraph2vec/__init__.py
+instgraph2vec/embed.py
+pyexample.egg-info/PKG-INFO
+pyexample.egg-info/SOURCES.txt
+pyexample.egg-info/dependency_links.txt
+pyexample.egg-info/requires.txt
+pyexample.egg-info/top_level.txt
