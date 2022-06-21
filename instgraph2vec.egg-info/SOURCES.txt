@@ -3,6 +3,7 @@ setup.py
 instgraph2vec/Embed.py
 instgraph2vec/__init__.py
 instgraph2vec/embed.py
+instgraph2vec/graph2vec.py
 instgraph2vec.egg-info/PKG-INFO
 instgraph2vec.egg-info/SOURCES.txt
 instgraph2vec.egg-info/dependency_links.txt

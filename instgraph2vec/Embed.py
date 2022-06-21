@@ -2,7 +2,7 @@ from gensim.models.doc2vec import Doc2Vec, TaggedDocument
 from tqdm import tqdm
 from joblib import Parallel, delayed
 import networkx as nx
-from instgraph2vec.graph2vec.src.graph2vec import WeisfeilerLehmanMachine
+from . import graph2vec
 import pandas as pd
 
 def extract_features(graph, rounds, name, features=None):
@@ -12,7 +12,7 @@ def extract_features(graph, rounds, name, features=None):
     else:
         features = {int(k): v for k, v in features.items()}
     
-    machine = WeisfeilerLehmanMachine(graph, features, rounds)
+    machine = graph2vec.WeisfeilerLehmanMachine(graph, features, rounds)
     doc = TaggedDocument(words=machine.extracted_features, tags=["g_" + str(name)])
 
     return doc

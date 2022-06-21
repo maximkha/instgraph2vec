@@ -8,7 +8,6 @@ import pandas as pd
 import networkx as nx
 from tqdm import tqdm
 from joblib import Parallel, delayed
-from instgraph2vec.graph2vec.src.param_parser import parameter_parser
 from gensim.models.doc2vec import Doc2Vec, TaggedDocument
 
 class WeisfeilerLehmanMachine:
@@ -106,30 +105,3 @@ def save_embedding(output_path, model, files, dimensions):
     out = pd.DataFrame(out, columns=column_names)
     out = out.sort_values(["type"])
     out.to_csv(output_path, index=None)
-
-def main(args):
-    """
-    Main function to read the graph list, extract features.
-    Learn the embedding and save it.
-    :param args: Object with the arguments.
-    """
-    graphs = glob.glob(os.path.join(args.input_path, "*.json"))
-    print("\nFeature extraction started.\n")
-    document_collections = Parallel(n_jobs=args.workers)(delayed(feature_extractor)(g, args.wl_iterations) for g in tqdm(graphs))
-    print("\nOptimization started.\n")
-
-    model = Doc2Vec(document_collections,
-                    vector_size=args.dimensions,
-                    window=0,
-                    min_count=args.min_count,
-                    dm=0,
-                    sample=args.down_sampling,
-                    workers=args.workers,
-                    epochs=args.epochs,
-                    alpha=args.learning_rate)
-
-    save_embedding(args.output_path, model, graphs, args.dimensions)
-
-if __name__ == "__main__":
-    args = parameter_parser()
-    main(args)
